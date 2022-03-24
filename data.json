@@ -1,0 +1,29 @@
+{
+  "Mahasiswa": [
+    {
+      "name": "Hanif Izza",
+      "nim": "2011521023",
+      "age": 19
+    },
+    {
+      "name": "Dzul Fauzi",
+      "nim": "2011522001",
+      "age": 19
+    },
+    {
+      "name": "Khalil 'Amir",
+      "nim": "2011522001",
+      "age": 19
+    },
+    {
+      "name": "Fikri Nazif Khairunnas",
+      "nim": "2011522001",
+      "age": 19
+    },
+    {
+      "name": "Farras Naufal Suhanda",
+      "nim": "2011522001",
+      "age": 19
+    }
+  ]
+}

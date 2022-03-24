@@ -1,10 +1,11 @@
 const { response } = require("express");
 const express = require("express");
+const res = require("express/lib/response");
 
 const app = express();
 
 app.get("/", function (request, response) {
-  response.send("Hello Husnil");
+  response.send("Hello Pak Husnil");
 });
 
 app.get("/home", function (request, response) {
@@ -21,27 +22,31 @@ app.get("/login/halamanberanda", function (request, response) {
 
 //Bagian Hanif Izza Pratama 9-13
 //9 Dosen dapat menambah CPMK mata kuliah
-app.get("/", function (request, response) {
-  response.send("Ini adalah halaman 9");
+app.get("/addcpmk", function (request, response) {
+  let obj = {
+    message: "Anda berhasil menambahkan Capaian Pembelajaran Mata Kuliah",
+    code_eror: 0,
+  };
+  res.json(obj);
 });
 
 //10 Dosen dapat mengubah CPMK mata kuliah
-app.get("/", function (request, response) {
+app.get("/editcpmk", function (request, response) {
   response.send("Ini adalah halaman 10");
 });
 
 //11 Dosen dapat menghapus CPMK mata kuliah
-app.get("/", function (request, response) {
+app.get("/deletecpmk", function (request, response) {
   response.send("Ini adalah halaman 11");
 });
 
 //12 Dosen dapat menambah referensi
-app.get("/", function (request, response) {
+app.get("/addreferensi", function (request, response) {
   response.send("Ini adalah halaman 12");
 });
 
-//13 Dosen dapat menambah referensi
-app.get("/", function (request, response) {
+//13 Dosen dapat mengubah referensi
+app.get("/editrefernsi", function (request, response) {
   response.send("Ini adalah halaman 13");
 });
 
