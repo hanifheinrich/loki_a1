@@ -27,7 +27,7 @@ app.get("/addcpmk", function (request, response) {
     message: "Anda berhasil menambahkan Capaian Pembelajaran Mata Kuliah",
     code_eror: 0,
   };
-  res.json(obj);
+  response.json(obj);
 });
 
 //10 Dosen dapat mengubah CPMK mata kuliah
@@ -36,7 +36,7 @@ app.get("/editcpmk", function (request, response) {
 });
 
 //11 Dosen dapat menghapus CPMK mata kuliah
-app.get("/deletecpmk", function (request, response) {
+app.delete("/deletecpmk/", function (request, response) {
   response.send("Ini adalah halaman 11");
 });
 
