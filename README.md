@@ -6,3 +6,4 @@ Modul 5-8   : Fikri Nazif Khairunnas
 Modul 9-13  : Hanif Izza Pratama
 Modul 14-18 : Dzul Fauzi
 Modul 19-23 : Farras Naufal Suhanda
+Terimakasih
