@@ -45,6 +45,32 @@ app.get("/", function (request, response) {
   response.send("Ini adalah halaman 13");
 });
 
+//Bagian dzul fauzi 14-18
+//14 Dosen dapat menghapus referensi
+app.get("/", function (request, response) {
+  response.send("Ini adalah halaman 14");
+});
+
+//15 Dosen dapat menambah komponen penilaian
+app.get("/", function (request, response) {
+  response.send("Ini adalah halaman 15");
+});
+
+//16 Dosen dapat mengubah komponen penilaian
+app.get("/", function (request, response) {
+  response.send("Ini adalah halaman 16");
+});
+
+//17 Dosen dapat menghapus komponen penilaian
+app.get("/", function (request, response) {
+  response.send("Ini adalah halaman 17");
+});
+
+//18 Dosen dapat menambah pertemuan mingguan RPS
+app.get("/", function (request, response) {
+  response.send("Ini adalah halaman 18");
+});
+
 app.listen(3000, function () {
   console.log("server sedang berjalan");
 });
