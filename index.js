@@ -71,6 +71,8 @@ app.get("/", function (request, response) {
   response.send("Ini adalah halaman 18");
 });
 
+//ini bagian khalil
+
 app.listen(3000, function () {
   console.log("server sedang berjalan");
 });
