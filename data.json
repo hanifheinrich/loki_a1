@@ -26,4 +26,37 @@
       "age": 19
     }
   ]
+  "Mata Kuliah" :  [
+        {
+            "nama" : "Analisis Visualisasi Data",
+            "kode" : "AVD101",
+            "sks" : 3,
+        },
+        {
+            "nama" : "Sistem Informasi Manajemen",
+            "kode" : "SIM101",
+            "sks" : 2,
+        },
+        {
+            "nama" : "Data Mining",
+            "kode" : "DM101",
+            "sks" : 3,
+
+        },
+        {
+            "nama" : "Perancangan Basis Data",
+            "kode" : "PBD101",
+            "sks" : 4,
+        }
+        {
+            "nama" : "Rekayasa Perangkat Lunak",
+            "kode" : "RPL101",
+            "sks" : 3,
+        },
+        {
+            "nama" : "Komunikasi Bisnis",
+            "kode" : "KB101",
+            "sks" : 3,
+        }
+    ]
 }
