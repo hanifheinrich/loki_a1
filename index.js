@@ -81,3 +81,20 @@ app.get("/", function (request, response) {
 app.listen(3000, function () {
   console.log("server sedang berjalan");
 });
+
+//fikri nazif khairunnas
+app.get("/", function (request, response) {
+  response.send("Ini adalah halaman 5");
+});
+
+app.get("/", function (request, response) {
+  response.send("Ini adalah halaman 6");
+});
+
+app.get("/", function (request, response) {
+  response.send("Ini adalah halaman 7");
+});
+
+app.get("/", function (request, response) {
+  response.send("Ini adalah halaman 8");
+});
