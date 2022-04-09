@@ -52,10 +52,6 @@ app.get("/addreferensi", function (request, response) {
     nama: HanifIzzaPratama,
     umur: 19,
   };
-  let obj = {
-    message: "Anda berhasil menambah referensi",
-    code_eror: 0,
-  };
 });
 
 //13 Dosen dapat mengubah referensi
