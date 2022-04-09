@@ -49,7 +49,7 @@ app.delete("/deletecpmk", function (request, response) {
 app.get("/addreferensi", function (request, response) {
   const mahasiswa = {
     nim: 2011521023,
-    nama: HanifIzzaPratama,
+    nama: "HanifIzzaPratama",
     umur: 19,
   };
   response.json(mahasiswa);
