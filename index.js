@@ -31,8 +31,8 @@ app.get("/addcpmk", function (request, response) {
 });
 
 //10 Dosen dapat mengubah CPMK mata kuliah
-app.put("/editcpmk/:id", function (request, response) {
-  const id = request.params;
+app.put("/editcpmk/:cpmk", function (request, response) {
+  const id = request.params.cpmk;
   response.send(id);
 });
 
