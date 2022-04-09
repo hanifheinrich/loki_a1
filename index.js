@@ -21,32 +21,33 @@ app.get("/login/halamanberanda", function (request, response) {
 });
 
 //Bagian Hanif Izza Pratama 9-13
-//9 Dosen dapat menambah CPMK mata kuliah
-app.get("/addcpmk", function (request, response) {
-  let obj = {
-    message: "Anda berhasil menambahkan Capaian Pembelajaran Mata Kuliah",
-    code_eror: 0,
-  };
-  response.json(obj);
-});
-
-//10 Dosen dapat mengubah CPMK mata kuliah
-app.put("/editcpmk/:cpmk", function (request, response) {
-  const id = request.params.cpmk;
-  response.send(id);
-});
-
-//11 Dosen dapat menghapus CPMK mata kuliah
-app.delete("/deletecpmk", function (request, response) {
-  let obj = {
-    message: "Anda berhasil menghapus Capaian Pembelajaran Mata Kuliah",
-    code_eror: 0,
-  };
-  response.json(obj);
-});
+app
+  .route("/cpmk")
+  //9 Dosen dapat menambah CPMK mata kuliah
+  .post(function (request, response) {
+    let obj = {
+      message: "Anda berhasil menambahkan Capaian Pembelajaran Mata Kuliah",
+      code_eror: 0,
+    };
+    response.json(obj);
+  })
+  //10 Dosen dapat mengubah CPMK mata kuliah
+  .put(function (request, response) {
+    const id = request.params.cpmk;
+    response.send(id);
+  })
+  //11 Dosen dapat menghapus CPMK mata kuliah
+  .delete(function (request, response) {
+    let obj = {
+      message: "Anda berhasil menghapus Capaian Pembelajaran Mata Kuliah",
+      code_eror: 0,
+    };
+    response.json(obj);
+  });
 
 //12 Dosen dapat menambah referensi
 app.get("/addreferensi", function (request, response) {
+  //responsejson
   const mahasiswa = {
     nim: 2011521023,
     nama: "HanifIzzaPratama",
