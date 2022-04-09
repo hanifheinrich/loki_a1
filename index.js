@@ -47,6 +47,11 @@ app.delete("/deletecpmk", function (request, response) {
 
 //12 Dosen dapat menambah referensi
 app.get("/addreferensi", function (request, response) {
+  const mahasiswa = {
+    nim: 2011521023,
+    nama: HanifIzzaPratama,
+    umur: 19,
+  };
   let obj = {
     message: "Anda berhasil menambah referensi",
     code_eror: 0,
