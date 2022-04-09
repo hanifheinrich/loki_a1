@@ -47,4 +47,4 @@ hanif
     };
   });
 
-module.export = hanif;
+module.exports = hanif;
