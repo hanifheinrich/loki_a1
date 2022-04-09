@@ -1,6 +1,11 @@
 {
   "Mahasiswa": [
     {
+      "name": "Hanif Izza",
+      "nim": "2011521023",
+      "age": 19
+    },
+    {
       "name": "Dzul Fauzi",
       "nim": "2011522001",
       "age": 19
