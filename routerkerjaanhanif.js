@@ -1,5 +1,6 @@
 const express = require("express");
-const hanif = express.Hanif();
+const hanif = express.Router();
+
 //Bagian Hanif Izza Pratama 9-13
 hanif
   .route("/cpmk")

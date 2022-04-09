@@ -1,8 +1,5 @@
-const { response } = require("express");
 const express = require("express");
-const routerHanif = require("./routerkerjaanhanif");
-const res = require("express/lib/response");
-
+const hanifRouter = require("./routerkerjaanhanif");
 const app = express();
 
 app.get("/", function (request, response) {
@@ -21,7 +18,7 @@ app.get("/login/halamanberanda", function (request, response) {
   response.send("Anda telah berhasil login");
 });
 
-app.use(routerHanif);
+app.use(hanifRouter);
 app.listen(3000, function () {
   console.log("server sedang berjalan");
 });
