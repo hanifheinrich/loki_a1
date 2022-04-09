@@ -52,6 +52,7 @@ app.get("/addreferensi", function (request, response) {
     nama: HanifIzzaPratama,
     umur: 19,
   };
+  response.json(mahasiswa);
 });
 
 //13 Dosen dapat mengubah referensi
