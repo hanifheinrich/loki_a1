@@ -31,12 +31,9 @@ app.get("/addcpmk", function (request, response) {
 });
 
 //10 Dosen dapat mengubah CPMK mata kuliah
-app.get("/editcpmk", function (request, response) {
-  let obj = {
-    message: "Anda berhasil mengganti Capaian Pembelajaran Mata Kuliah",
-    code_eror: 0,
-  };
-  response.json(obj);
+app.put("/editcpmk/:id", function (request, response) {
+  const id = request.params;
+  response.send(id);
 });
 
 //11 Dosen dapat menghapus CPMK mata kuliah
@@ -50,12 +47,18 @@ app.delete("/deletecpmk", function (request, response) {
 
 //12 Dosen dapat menambah referensi
 app.get("/addreferensi", function (request, response) {
-  response.send("Ini adalah halaman 12");
+  let obj = {
+    message: "Anda berhasil menambah referensi",
+    code_eror: 0,
+  };
 });
 
 //13 Dosen dapat mengubah referensi
 app.get("/editrefernsi", function (request, response) {
-  response.send("Ini adalah halaman 13");
+  let obj = {
+    message: "Anda berhasil mengubah referensi",
+    code_eror: 0,
+  };
 });
 
 app.listen(3000, function () {
