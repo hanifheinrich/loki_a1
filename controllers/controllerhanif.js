@@ -83,19 +83,15 @@ module.exports = {
     });
   },
   lihatcpmk: function (request, response) {
-    if (cpmks.length > 0) {
-      response.json({
-        status: true,
-        data: cpmks,
-        message: "data berhasil di tampilkan",
-        method: request.method,
-        url: request.url,
-      });
-    } else {
-      response.json({
-        status: false,
-        message: "data kosong",
-      });
-    }
-  }
+    const datas = {
+      course_plan_id: 001,
+      tittle: "Beginning PHP 5.3",
+      author: "Matt Doyle",
+      publisher: "Wrox",
+      year: 2009,
+      decription: "",
+    };
+    //render ejs dan data
+    response.render("index", { datas: datas });
+  },
 };

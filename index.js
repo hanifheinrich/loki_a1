@@ -3,6 +3,9 @@ const express = require("express");
 const hanifRouter = require("./routerkerjaanhanif");
 const app = express();
 
+//set template engine
+app.set("view engine", "ejs");
+
 app.get("/", function (request, response) {
   response.send("Hello Pak Husnil");
 });
