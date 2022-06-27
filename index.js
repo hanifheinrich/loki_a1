@@ -10,7 +10,7 @@ const app = express();
 app.set("view engine", "ejs");
 
 app.get("/", function (request, response) {
-  response.render("./views/pages/login.ejs");
+  response.render("views/pages/login.ejs");
 });
 
 app.use(hanifRouter);
