@@ -3,7 +3,7 @@ const { append } = require("express/lib/response");
 //new router
 const hanif = express.Router();
 
-const hanifcontroller = require("../loki_a1/controllers/controllerhanif");
+const hanifcontroller = require("../controllers/controllerhanif");
 
 //req.body(akses request data)
 hanif.use(express.json()); // for parsing application/json

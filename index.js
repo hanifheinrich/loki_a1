@@ -3,26 +3,14 @@ const { response } = require("express");
 const express = require("express");
 const res = require("express/lib/response");
 //impor modul hanif
-const hanifRouter = require("./routerkerjaanhanif");
+const hanifRouter = require("./router/routerkerjaanhanif");
 const app = express();
 
 //set template engine
 app.set("view engine", "ejs");
 
 app.get("/", function (request, response) {
-  response.render("login.ejs");
-});
-
-app.get("/home", function (request, response) {
-  response.send("Ini adalah halaman home");
-});
-
-app.get("/login", function (request, response) {
-  response.send("Ini adalah halaman buat login");
-});
-
-app.get("/login/halamanberanda", function (request, response) {
-  response.send("Anda telah berhasil login");
+  response.render("./views/pages/login.ejs");
 });
 
 app.use(hanifRouter);
