@@ -25,5 +25,66 @@
       "nim": "2011522001",
       "age": 19
     }
+  ],
+
+  "Dosen": [
+    {
+      "nama": "Surya Afnarius",
+      "nip": 196404091995121001,
+      "tanggal_lahir": "09-04-1964"
+    },
+    {
+      "nama": "Adi Arga Arifnur",
+      "nip": 199208202019031005,
+      "tanggal_lahir": "20-08-1992"
+    },
+    {
+      "nama": "Dwi Welly Sukma Nirad",
+      "nip": 199108122019032018,
+      "tanggal_lahir": "12-08-1991"
+    },
+    {
+      "nama": "Ricky Akbar",
+      "nip": 198410062012121001,
+      "tanggal_lahir": "06-10-1984"
+    },
+    {
+      "nama": "Harris Suryamen",
+      "nip": 197503232012121001,
+      "tanggal_lahir": "23-03-1975"
+    }
+  ],
+
+  "Mata Kuliah": [
+    {
+      "nama": "Analisis Visualisasi Data",
+      "kode": "AVD101",
+      "sks": 3
+    },
+    {
+      "nama": "Sistem Informasi Manajemen",
+      "kode": "SIM101",
+      "sks": 2
+    },
+    {
+      "nama": "Data Mining",
+      "kode": "DM101",
+      "sks": 3
+    },
+    {
+      "nama": "Perancangan Basis Data",
+      "kode": "PBD101",
+      "sks": 4
+    },
+    {
+      "nama": "Rekayasa Perangkat Lunak",
+      "kode": "RPL101",
+      "sks": 3
+    },
+    {
+      "nama": "Komunikasi Bisnis",
+      "kode": "KB101",
+      "sks": 3
+    }
   ]
 }
