@@ -1,0 +1,397 @@
+<%- include('../layout/head', {judul: 'Detail Mata kuliah'}) %>
+<div class="d-block mb-4 mb-md-0">
+    <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+            <li class="breadcrumb-item">
+                <a href="/dosen">
+                    <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                        </path>
+                    </svg>
+                </a>
+            </li>
+        
+            <li class="breadcrumb-item">
+                <a href="/dosen">RPS Mata kuliah</a>
+            </li>
+            
+            <li class="breadcrumb-item active" aria-current="page">
+                Detail Mata kuliah
+            </li>
+        </ol>
+    </nav>
+        <h2 class="h2">RPS Matakuliah</h2>
+</div>
+
+<script type="text/javascript">
+    
+    function printData(area) {
+    var printPage = document.getElementById(area).innerHTML;
+    var oriPage = document.body.innerHTML;
+    document.body.innerHTML = printPage;
+    window.print()
+    document.body.innerHTML = oriPage;
+}
+    </script>
+
+
+    
+<style>
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border:2px solid gray
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 5px;
+  border:2px solid rgb(128, 128, 128)
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.box{
+    margin-left: 5px;
+}
+
+</style>
+
+<section class="section">
+    <div>
+        
+        <a href="#" class="btn btn-secondary box" type="button" onclick="return printData('area')"><svg xmlns="http://www.w3.org/2000/svg" height="20" width="20"><path d="M13.25 6.708V4.25H6.75V6.708H5V2.5H15V6.708ZM3.417 8.458Q3.417 8.458 3.677 8.458Q3.938 8.458 4.312 8.458H15.771Q16.146 8.458 16.365 8.458Q16.583 8.458 16.583 8.458H14.833H5.167ZM15 10.646Q15.354 10.646 15.615 10.385Q15.875 10.125 15.875 9.771Q15.875 9.417 15.615 9.156Q15.354 8.896 15 8.896Q14.646 8.896 14.385 9.156Q14.125 9.417 14.125 9.771Q14.125 10.125 14.385 10.385Q14.646 10.646 15 10.646ZM13.25 15.75V12.833H6.75V15.75ZM15 17.5H5V14.438H1.667V9.271Q1.667 8.208 2.417 7.458Q3.167 6.708 4.229 6.708H15.771Q16.833 6.708 17.583 7.458Q18.333 8.208 18.333 9.271V14.438H15ZM16.583 12.688V9.354Q16.583 8.979 16.365 8.719Q16.146 8.458 15.771 8.458H4.312Q3.938 8.458 3.677 8.719Q3.417 8.979 3.417 9.354V12.688H5V11.083H15V12.688Z"/></svg> Print</a>
+       
+
+    </div ><br>
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Detail Matakuliah</h2>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <!-- <p>To make label in center of form-control, use <code>.col-form-label</code> class with
+                        <code>&lt;label&gt;</code> element. This is default bootstrap class.
+                    </p> -->
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row align-items-center">
+                        <div class="col-lg-4 col-3">
+                            <label class="col-form-label"><h6>Kode Mata kuliah</h6></label>
+                        </div>
+                        <div class="col-lg-5 col-9">
+                            <p class="form-control-static" id="staticInput"><%= rps.code %></p>
+                        </div>
+                    </div>
+                    <div class="form-group row align-items-center">
+                        <div class="col-lg-4 col-3">
+                            <label class="col-form-label"><h6>Nama Mata kuliah</h6></label>
+                        </div>
+                        <div class="col-lg-5 col-9">
+                            <p class="form-control-static" id="staticInput"><%= rps.name %></p>
+                        </div>
+                    </div>
+                    <div class="form-group row align-items-center">
+                        <div class="col-lg-4 col-3">
+                            <label class="col-form-label"><h6>Semester</h6></label>
+                        </div>
+                        <div class="col-lg-5 col-9">
+                            <p class="form-control-static" id="staticInput"><%= rps.semester %></p>
+                        </div>
+                    </div>
+                    <div class="form-group row align-items-center">
+                        <div class="col-lg-4 col-3">
+                            <label class="col-form-label"><h6>SKS</h6></label>
+                        </div>
+                        <div class="col-lg-5 col-9">
+                            <p class="form-control-static" id="staticInput"><%= rps.credit %></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <br><br><br>                                
+            </div>
+        </div>
+        <div class="card-footer">
+            <a href="/dosen/detail-<%=rps.id %>/edit" class="btn btn-secondary box"  type="button" > Edit</a>
+            <a href="#" class="btn btn-secondary box" type="button" > Revisi</a>
+        </div>
+    </div><br><div class="card">
+        <div class="card-body">
+            <button type="button" class="btn btn-primary" data-bs-toggle="#" data-bs-target="#">Tambah CPMK</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="#" data-bs-target="#">Tambah Referensi</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="#" data-bs-target="#">Tambah Komponen Penilaian</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="#" data-bs-target="#">Tambah Pertemuan Mingguan</button>
+        </div>
+    </div>
+    <br>
+                <div class="card" id="area">
+                    <div class="card-header"> 
+                        <h2 class="card-title">Detail RPS</h2>
+                    </div>
+                    <div class="card-body">
+                        
+                        <div class="col-md-6">
+                            <div class="form-group row align-items-center">
+                                <div class="col-lg-4 col-3">
+                                </div>
+
+                                <div class="col-lg-5 col-9">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <table>  <!---->
+                                
+                                <tr> <!--pembuatan baris-->
+                                    <th colspan="2"> <img src="../assets/img/pweb/logo.svg" height="150" width="150" alt="Volt Logo" ></th>
+                                    <th colspan="6" style="text-align: left;">RENCANA PEMBELAJARAN SEMESTER (RPS)<br> PROGRAM STUDI : Sistem Informasi<br> FAKULTAS /PPs: Teknologi Informasi <br>UNIVERSITAS ANDALAS </th>
+                                </tr>
+
+                                <tr>  <!--pembuatan baris-->
+                                    <th colspan="2" style="text-align: left;"  >Mata Kuliah</th> <!--pembuatan header-->
+                                    <th>KODE</th>
+                                    <th>Rumpun/Kelompok MK</th>
+                                    <th>Bobot(SKS)</th>
+                                    <th>Semester </th>
+                                    <th>Tgl Penyusunan</th>
+                                </tr>
+
+                                <tr>  <!--pembuatan baris-->
+                                    <th colspan="2" style="text-align: left;" ><%=rps.name%></th> <!--pembuatan kolom-->
+                                    <th><%= rps.code %></th>
+                                    <td></td>
+                                    <th><%= rps.credit %></th>
+                                    <th><%= rps.semester %></th>
+                                    <th></th>
+                                </tr>
+
+                                <tr> <!--pembuatan baris-->
+                                    <th style="background-color: #fcfcfc; text-align: left;"  rowspan="3" colspan="2" ><b>OTORISASI</b></th>
+                                    <th><h6><b>Dosen Pengembang RPS</b></h6></th>
+                                    <th colspan="2"><h6><b>Koordinator Rumpun MK</b></h6></th>
+                                    <th valign=middle colspan="3"><h6><b>Ka Program Studi</b></h6></th>
+                                <tr>
+                                
+                                <tr height="40px"> <!--pembuatan baris-->
+                                        <th style="background-color: #fcfcfc"></th>
+                                        <th colspan="2" style="background-color: #fcfcfc"></th>
+                                        <th colspan="2" style="background-color: #fcfcfc"></th>
+                                <tr>
+
+                                <tr> <!--pembuatan baris--> <!---->
+                                    <div>                                     
+                                        <th rowspan="13" style="background-color: #fcfcfc; text-align: left;" valign=top >Capaian Pembelajaran (CP)</th> 
+                                    </div>
+
+                                    <div>
+                                        <th style="background-color: rgb(215, 213, 213); text-align: left;" colspan="2" >CP Program Studi</th>
+                                    </div>
+                                    
+                                    <div>
+                                        <% cpl.forEach((cp) => { %>
+                                        <tr>
+                                            <td style="background-color: #fcfcfc"><%=cp.code%></td>
+                                            <td style="background-color: #fcfcfc; text-align: left;" colspan="6" ><%=cp.name%></td>
+                                        <tr>
+                                            <% })%>
+
+                                    
+
+                                <tr> <!--pembuatan baris-->
+                                    <th style="background-color: rgb(215, 213, 213); text-align: left;" colspan="2">CP Mata Kuliah</th>
+                                    <% cpmk.forEach((cc, index) => { %>
+                                    <tr>
+                                        <td style="background-color: #fcfcfc"><%= index+1 %></td>
+                                        <td style="background-color: #fcfcfc; text-align: left;" colspan="6" ><%= cc.name %></td>
+                                    </tr>
+                                    <% })%>
+                                    
+
+                                </tr>
+                              
+                                <tr> <!--pembuatan baris-->
+                                   <th style="background-color: #fcfcfc; text-align: left;" colspan="2">Deskripsi Singkat <br>
+                                    Mata Kuliah</th>
+                                    <td style="background-color: #fcfcfc; text-align: left;" colspan="6"><%= rps.description%></td>
+                                   <tr></tr>
+
+                                </tr>
+
+                                <tr><!--pembuatan baris-->
+                                    <th style="background-color: #fcfcfc; text-align: left;" colspan="2">Materi Pembelajaran/<br>Pokok Bahasan</th> 
+                                    
+                                        <td style="background-color: #fcfcfc; text-align: left;" colspan="5">
+                                        </td>                                      
+                                </tr>
+                                    
+
+                                <tr> <!--pembuatan baris -->
+                                    <div>
+                                       <tr>
+                                            <th rowspan="5" style="background-color: #fcfcfc; text-align: left;" valign=top colspan="2">Pustaka</th> 
+                                            <th style="text-align: left; background-color: rgb(215, 213, 213);" colspan="1" >Utama :</th>
+                                       </tr>                                    
+                                    </div>
+                                                                      
+                                    <div>
+                                        <% referensi.forEach((ref, index) => { %>
+                                        <tr>
+                                            <td colspan="8" style="background-color: #fcfcfc; text-align: left;"><%=index+1%>. <%=ref.author%>, <%=ref.year%>,"<%= ref.title%>",<%=ref.publisher%> 
+                                            </td>                                        
+                                        </tr> 
+                                        <% })%> 
+                                    </div>                                 
+
+                                    <tr>
+                                        <th style="text-align: left; background-color: rgb(215, 213, 213);" colspan="1">Pendukung :</th>
+                                        <% referensi2.forEach((ref2, index) => { %>
+                                        <tr>
+                                            <td colspan="8" style="background-color: #fcfcfc; text-align: left;"> <%=index+1%>. <%=ref2.author%>, <%=ref2.year%>,"<%= ref2.title%>",<%=ref2.publisher%>
+                                            </td>                                    
+                                        </tr>
+                                        <% })%> 
+                                    </tr>
+                                </tr>
+
+                                <!--pembuatan baris baru-->
+                                <tr></tr>
+                                <tr></tr>
+                                <tr></tr>
+
+                                <tr>  <!--pembuatan baris-->
+                                    <tr>
+                                        <div>                                    
+                                            <th style="background-color: #fcfcfc; text-align: left;" colspan="2" ><i>Team Teaching</i></th> 
+                                            <td style="background-color: #fcfcfc; text-align: left;" colspan="6">-</td>
+                                        </div>
+                                        
+                                    </tr>                               
+                                </tr>
+
+                                <tr>  <!--pembuatan baris-->
+                                    <tr>
+                                        <div> 
+                                            
+                                            <tr>    
+                                                <th rowspan="3" style="background-color: #fcfcfc; text-align: left;" colspan="2" ><i>Assessment</i></th>                               
+                                            <% penilaian.forEach((nilai,index) => { %>
+                                            
+                                            <td rowspan="<%=index+1%>" style="background-color: #fcfcfc; text-align: left;" colspan="6"><%=nilai.name%> : <%=nilai.percentage%>%</td>
+                                            </tr>
+                                            <% })%> 
+                                        </div>                                       
+                                    </tr>                              
+                                </tr>
+
+
+                                <tr>  <!--pembuatan baris-->
+                                    <tr>
+                                        <div>                                    
+                                            <th style="background-color: #fcfcfc; text-align: left;" colspan="2" valign=top  >Mata Kuliah Syarat</th> 
+                                            <td style="background-color: #fcfcfc; text-align: left;" colspan="6">1.Struktur Data dan Algoritma<br>2.	Dasar-Dasar Pemrograman<br>3.	Pemograman Berorientasi Objek</td>
+                                        </div>                                       
+                                    </tr>                               
+                                </tr>
+
+                        </table>
+                    </div>
+                    <br>
+            <h4 class="card-title">Pertemuan Mingguan</h4>
+        <table>
+            <tr>  <!--pembuatan baris-->
+                <th colspan="2" style="text-align: left;"  >Mg ke-</th> <!--pembuatan header-->
+                <th>Kemampuan akhir yg diharapkan</th>
+                <th>Bahan Kajian (Materi Ajar) Dan Referensi</th>
+                <th>Metode Pembelajaran dan Alokasi Waktu</th>
+                <th>Pengalaman Belajar Mahasiswa</th>
+                <th>Kriteria(Indikator) Penilaian</th>
+                <th>Bobot Penilaian (%)</th>
+            </tr>
+
+            <tr>  <!--pembuatan baris-->
+                <th colspan="2">(1)</th>
+                <th>(2)</th>
+                <th>(3)</th>
+                <th>(4)</th>
+                <th>(5)</th>
+                <th>(6)</th>
+                <th>(7)</th>
+
+            </tr>
+
+            <tr>  
+                <th colspan="2">1</th>
+                <td>Mahasiswa mampu menjelaskan konsep dasar dari rekayasa perangkat lunak</td>
+                <td>Bahan Kajian (Materi Ajar) Dan Referensi</td>
+                <td>Metode Pembelajaran dan Alokasi Waktu</td>
+                <td>Pengalaman Belajar Mahasiswa</td>
+                <td>Kriteria(Indikator) Penilaian</td>
+                <td>Bobot Penilaian (%)</td>
+            </tr>
+            <tr>
+               
+                <table>
+                    <br>
+                    <h4 class="card-title">Bobot Penilaian</h4> 
+                   
+                    <tr>  <!--pembuatan baris-->
+                        <th style="text-align: center;" >No</th> <!--pembuatan header-->
+                        <th style="text-align: center">Kriteria</th>
+                        <th style="text-align: center">Bobot</th>
+                    </tr>
+        
+                    <tr>  <!--pembuatan baris-->
+                        <th style="text-align: center">1</th>
+                        <td style="text-align: center;">Quiz</td>
+                        <td style="text-align: center">10%</td>             
+                    </tr>
+                    <tr>
+                        <th style="text-align: center">2</th>
+                        <td style="text-align: center;">Latihan</td>
+                        <td style="text-align: center">5%</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center">3</th>
+                        <td style="text-align: center;">Tugas</td>
+                        <td style="text-align: center">10%</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center">4</th>
+                        <td style="text-align: center;">Tugas Besar</td>
+                        <td style="text-align: center">50%</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center">5</th>
+                        <td style="text-align: center;">Sikap</td>
+                        <td style="text-align: center">5%</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center">6</th>
+                        <td style="text-align: center;">Presentasi</td>
+                        <td style="text-align: center">15%</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center">7</th>
+                        <td style="text-align: center;">Kehadiran</td>
+                        <td style="text-align: center">5%</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" style="text-align: right;"><h5>Total</h5></th>
+                        <th>100%</th>
+                    </tr>
+                </table>
+
+</section>
+
+        <%- include('../layout/foot') %>

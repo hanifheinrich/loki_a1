@@ -1,0 +1,44 @@
+<nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-lg-none">
+    <a class="navbar-brand me-lg-5" href="<% if (type=="T") { %>
+      /admin/
+     <% } else if (type=="D") { %>
+     /dosen/
+     <% } else {%>
+     /mahasiswa/
+     <% } %> ">
+        <img class="navbar-brand-dark" src="../../assets/img/pweb/logo.svg" alt="UNAND logo" /> <img class="navbar-brand-light" src="../assets/img/pweb/logo.svg" alt="UNAND logo" />
+    </a>
+    <div class="d-flex align-items-center">
+        <button class="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>  
+
+<main class="content">
+    <nav class="navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
+<div class="container-fluid px-0">
+<div class="d-flex justify-content-between w-100" id="navbarSupportedContent">
+<div class="d-flex align-items-center">
+</div>
+<!-- Navbar links -->
+<ul class="navbar-nav align-items-center">
+<li class="nav-item dropdown ms-lg-3">
+    <div class="media d-flex align-items-center">
+      <img class="avatar rounded-circle" alt="Image placeholder" src="../../assets/img/team/profile-picture-3.jpg">
+      <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
+        <span class="mb-0 font-small fw-bold text-gray-900"><%=user.name %></span><br>
+                                <p class="mb-0 font-small fw-bold text-gray-400"><% if (user.type=="T") { %>
+                                    Admin
+                                   <% } else if (user.type=="D") { %>
+                                   Dosen
+                                   <% } else {%>
+                                   Mahasiswa
+                                   <% } %> </p>
+      </div>
+    </div>
+</li>
+</ul>
+</div>
+</div>
+</nav>

@@ -1,0 +1,405 @@
+<%- include('../layout/head', {judul: 'Edit RPS'}) %>
+<div class="d-block mb-4 mb-md-0">
+    <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+            <li class="breadcrumb-item">
+                <a href="/dosen">
+                    <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                        </path>
+                    </svg>
+                </a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="/dosen">RPS Mata kuliah</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="/dosen/detail-<%=rps.id %>">Detail Mata kuliah</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Edit</li>
+        </ol>
+    </nav>
+</div>
+            <section class="section">
+                <h2 class="h2">Edit RPS Matakuliah</h2>
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title"><%= rps.name %></h4>
+                    </div>
+                    <div class="card-body">
+                        
+                        <ul>
+                        <li>Kode Mata Kuliah : <%= rps.code %></li>
+                        <li>Semester : <%= rps.semester %></li>
+                        <li>SKS : <%= rps.credit %></li>
+                        </ul><br>
+
+                        <div class="card-header">
+                            <h4 class="card-title">Tabel CPMK</h4>
+                        </div>
+                        <div class="table-responsive" name="table-responsive">
+                            <table class="table table-centered table-nowrap mb-0 rounded">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th hidden>No</th>
+                                        <th class="border-0 rounded-start">Code</th>
+                                        <th class="border-0">Name</th>
+                                        <th class="border-0 rounded-end">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% cpmk.forEach((cc, index) => { %>
+                                    <tr>
+                                        <td hidden><%=index+1%></td>
+                                        <td class="border-0"><%= cc.code %>  </td>
+                                        <td class="border-0 font-weight-bold"><%= cc.name %></td>
+                                        
+                                        <td class="border-0 font-weight-bold">
+                                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit<%=index+1%>">Edit</button>
+                                            <!-- Modal Content -->
+                                            <div class="modal fade" id="edit<%=index+1%>" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h2 class="h6 modal-title">Edit Referensi</h2>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <form action="/dosen/editcpmk" method="post">
+                                                        <div class="modal-body">
+                                                            <input type="hidden" name="id" value="<%= cc.id %>">
+                                                            <label>Kode </label>
+                                                            <div class="input-group mb-3">
+                                                            <input type="text" class="form-control" placeholder="<%= cc.code %>" name="code" required>
+                                                            </div>
+                                                            <label>Nama </label>
+                                                            <div class="input-group mb-3">
+                                                            <input type="text" class="form-control" placeholder="<%= cc.name %>" name="name" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-primary">Edit</button>
+                                                            <button type="button" class="btn btn-link text-gray ms-auto" data-bs-dismiss="modal">Tutup</button>
+                                                        </div>
+                                                    </form>
+                                                    </div>
+                                                
+                                            </div>
+                                        </div>
+                                                <button type="button" class="btn btn-danger box" data-bs-toggle="modal" data-bs-target="#hapus<%=index+1%>">Hapus</button>
+                                                            <div class="modal fade" id="hapus<%=index+1%>" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h2 class="h6 modal-title">Peringatan!</h2>
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <form action="/dosen/hapuscpmk" method="post">
+                                                                            <div class="modal-body">
+                                                                                <p>Apakah Anda Yakin ingin Menghapus?</p>
+                                                                                <input type="hidden" name="id" value="<%=cc.id%>">
+                                                                                <input type="hidden" name="parent_id" value="<%=cc.parent_id%>">
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                                                                <button type="button" class="btn btn-link text-gray ms-auto" data-bs-dismiss="modal">Batal</button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        
+                                        </td>
+                                    </tr>
+                                    <% })%>
+                                </tbody>
+                            </table>
+                        </div><br>
+                        
+                    </div><br>
+                    <div class="card-header">
+                        <h2 class="card-title">Tabel Referensi</h2>
+                    </div>
+                    <div class="table-responsive" name="table-responsive">
+                        <table class="table table-centered table-nowrap mb-0 rounded">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th hidden>No</th>
+                                    <th class="border-0 rounded-start">Judul</th>
+                                    <th class="border-0">Pengarang</th>
+                                    <th class="border-0">Penerbit</th>
+                                    <th class="border-0">Tahun</th>
+                                    <th class="border-0">Kategori</th>
+                                    <th class="border-0 rounded-end">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% referensi.forEach((ref, index) => { %>
+                                <tr>
+                                    <td hidden><%=index+1%></td>
+                                    <td class="border-0"><%= ref.title %>  </td>
+                                    <td class="border-0 font-weight-bold"><%= ref.author %></td>
+                                    <td class="border-0 font-weight-bold"><%= ref.publisher %></td>
+                                    <td class="border-0 font-weight-bold"><%= ref.year %></td>
+                                    <td class="border-0 font-weight-bold"><%= ref.description %></td>
+                                    
+                                    <td class="border-0 font-weight-bold">
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit<%=index+1%>">Edit</button>
+                                        <!-- Modal Content -->
+                                        <div class="modal fade" id="edit<%=index+1%>" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h2 class="h6 modal-title">Edit Referensi</h2>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <form action="/dosen/editreferensi" method="post">
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="id" value="<%= ref.id %>">
+                                                        <label>Judul </label>
+                                                        <div class="input-group mb-3">
+                                                        <input type="text" class="form-control" placeholder="<%= ref.title %>" name="title" required>
+                                                        </div>
+                                                        <label>Pengarang </label>
+                                                        <div class="input-group mb-3">
+                                                        <input type="text" class="form-control" placeholder="<%= ref.author %>" name="author" required>
+                                                        </div>
+                                                        <label>Penerbit </label>
+                                                        <div class="input-group mb-3">
+                                                        <input type="text" class="form-control" placeholder="<%= ref.publisher %>" name="publisher" required>
+                                                        </div>
+                                                        <label>Tahun </label>
+                                                        <div class="input-group mb-3">
+                                                        <input type="text" class="form-control" placeholder="<%= ref.year %>" name="year" required>
+                                                        </div>
+                                                        <label>Kategori</label>
+                                                        <div class="input-group mb-3">
+                                                        <select class="form-select" name="description">
+                                                            <option value="Utama">Utama</option>
+                                                            <option value="Pendukung">Pendukung</option>
+                                                        </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                                        <button type="button" class="btn btn-link text-gray ms-auto" data-bs-dismiss="modal">Tutup</button>
+                                                    </div>
+                                                </form>
+                                                </div>
+                                            
+                                        </div>
+                                    </div>
+                                            <button type="button" class="btn btn-danger box" data-bs-toggle="modal" data-bs-target="#hapus<%=index+1%>">Hapus</button>
+                                                        <div class="modal fade" id="hapus<%=index+1%>" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h2 class="h6 modal-title">Peringatan!</h2>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <form action="/dosen/hapusreferensi" method="post">
+                                                                        <div class="modal-body">
+                                                                            <p>Apakah Anda Yakin ingin Menghapus?</p>
+                                                                            <input type="hidden" name="id" value="<%=ref.id%>">
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                                                            <button type="button" class="btn btn-link text-gray ms-auto" data-bs-dismiss="modal">Batal</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    
+                                    </td>
+                                </tr>
+                                <% })%>
+                            </tbody>
+                        </table>
+                    </div><br><br>
+                    <div class="card-header">
+                        <h4 class="card-title">Tabel Pertemuan Mingguan</h4>
+                    </div>
+                    <div class="table-responsive" name="table-responsive">
+                        <table class="table table-centered table-nowrap mb-0 rounded">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th hidden>No</th>
+                                    <th class="border-0 rounded-start">Minggu ke-</th>
+                                    <th class="border-0">Materi</th>
+                                    <th class="border-0 rounded-end">Metode Pembelajaran</th>
+                                    <th class="border-0 rounded-end">Pengalaman Belajar</th>
+                                    <th class="border-0 rounded-end">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% mingguan.forEach((pm, index) => { %>
+                                <tr>
+                                    <td hidden><%=index+1%></td>
+                                    <td class="border-0"><%= pm.week %>  </td>
+                                    <td class="border-0 font-weight-bold"><%= pm.material %></td>
+                                    <td class="border-0 font-weight-bold"><%= pm.method %></td>
+                                    <td class="border-0 font-weight-bold"><%= pm.student_experience %></td>
+                                    <td class="border-0 font-weight-bold">
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit<%=index+1%>">Edit</button>
+                                        <!-- Modal Content -->
+                                        <div class="modal fade" id="edit<%=index+1%>" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h2 class="h6 modal-title">Edit Pertemuan Mingguan</h2>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <form action="/dosen/editmingguan" method="post">
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="id" value="<%= pm.id %>">
+                                                        <label>Minggu Ke- </label>
+                                                        <div class="input-group mb-3">
+                                                            <select class="form-select" name="week" placeholder="<%= pm.week %>" >
+                                                            <% for (var i = 1; i <=16;i++){%> 
+                                                            <option value="<%=i%>"><%=i%></option>
+                                                            <%}%>
+                                                            </select>
+                                                            </div>
+                                                        <label>Materi </label>
+                                                        <div class="input-group mb-3">
+                                                        <input type="text" class="form-control" placeholder="<%= pm.material %>" name="material" required>
+                                                        </div>
+                                                        <label>Metode Pembelajaran </label>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group mb-3">
+                                                                <select class="form-select" name="method" placeholder="<%= pm.method %>">
+                                                                    <option value="Project Based">Project Based</option>
+                                                                    <option value="Cased Based">Cased Based</option>
+                                                                    </select>
+                                                            </div>
+                                                        </div>
+                                                        <label>Pengalaman Belajar </label>
+                                                        <div class="input-group mb-3">
+                                                        <input type="text" class="form-control" placeholder="<%= pm.student_experience %>" name="student_experience" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                                        <button type="button" class="btn btn-link text-gray ms-auto" data-bs-dismiss="modal">Tutup</button>
+                                                    </div>
+                                                </form>
+                                                </div>
+                                            
+                                        </div>
+                                    </div>
+                                            <button type="button" class="btn btn-danger box" data-bs-toggle="modal" data-bs-target="#hapus<%=index+1%>">Hapus</button>
+                                                        <div class="modal fade" id="hapus<%=index+1%>" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h2 class="h6 modal-title">Peringatan!</h2>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <form action="/dosen/hapusmingguan" method="post">
+                                                                        <div class="modal-body">
+                                                                            <p>Apakah Anda Yakin ingin Menghapus?</p>
+                                                                            <input type="hidden" name="id" value="<%=pm.id%>">
+                                                                            <input type="hidden" name="parent_id" value="<%=pm.parent_id%>">
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                                                            <button type="button" class="btn btn-link text-gray ms-auto" data-bs-dismiss="modal">Batal</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    
+                                    </td>
+                                </tr>
+                                <% })%>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-header" >
+                        <h2 class="card-title">Tabel Penilaian</h2>
+                    </div>
+                    <div class="table-responsive" name="table-responsive">
+                        <table class="table table-centered table-nowrap mb-0 rounded">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th hidden>No</th>
+                                    <th class="border-0 rounded-start">Komponen Penilaian</th>
+                                    <th class="border-0">Bobot</th>
+                                    <th class="border-0 rounded-end">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% penilaian.forEach((nilai, index) => { %>
+                                <tr>
+                                    <td hidden><%=index+1%></td>
+                                    <td class="border-0"><%=nilai.name%></td>
+                                    <td class="border-0 font-weight-bold"><%=nilai.percentage%>%</td>
+                                    <td class="border-0 font-weight-bold">
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit<%=index+1%>">Edit</button>
+                                        <!-- Modal Content -->
+                                        <div class="modal fade" id="edit<%=index+1%>" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h2 class="h6 modal-title">Edit Referensi</h2>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <form action="/dosen/editpenilaian" method="post">
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="id" value="<%= nilai.id %>">
+                                                        <input type="hidden" name="flag" value="<%= nilai.flag %>">
+                                                        <label>Komponen Penilaian </label>
+                                                        <div class="input-group mb-3">
+                                                        <input type="text" class="form-control" placeholder="<%= nilai.name %>" name="name" required>
+                                                        </div>
+                                                        <label>Bobot </label>
+                                                        <div class="input-group mb-3">
+                                                        <input type="text" class="form-control" placeholder="<%= nilai.percentage %>" name="percentage" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                                        <button type="button" class="btn btn-link text-gray ms-auto" data-bs-dismiss="modal">Tutup</button>
+                                                    </div>
+                                                </form>
+                                                </div>
+                                            
+                                        </div>
+                                    </div>
+                                            <button type="button" class="btn btn-danger box" data-bs-toggle="modal" data-bs-target="#hapus<%=index+1%>">Hapus</button>
+                                                        <div class="modal fade" id="hapus<%=index+1%>" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h2 class="h6 modal-title">Peringatan!</h2>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <form action="/dosen/hapuspenilaian" method="post">
+                                                                        <div class="modal-body">
+                                                                            <p>Apakah Anda Yakin ingin Menghapus?</p>
+                                                                            <input type="hidden" name="id" value="<%=nilai.id%>">
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                                                            <button type="button" class="btn btn-link text-gray ms-auto" data-bs-dismiss="modal">Batal</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                    </td>
+                                </tr>
+                                
+                            
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>   
+                
+        </div>
+    </section>
+
+<%- include('../layout/foot') %>

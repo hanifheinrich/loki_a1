@@ -1,0 +1,127 @@
+<%- include('../layout/head', {judul: 'Laporan RPS'}) %>
+<div class="page-heading">
+  <div class="page-title">
+    <div class="row">
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h3>Laporan</h3>
+    </div>
+    <div class="button">
+      <br />
+      <a href="#" class="btn btn-primary rounded-pill"><i class="fa-solid fa-print"></i> Print</a>
+    </div>
+    <br />
+  </div>
+
+  <!-- Horizontal Input start -->
+  <section id="horizontal-input">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Peta CPMK ke CPL</h4>
+          </div>
+
+          <div class="card-body">
+            <div class="table-responsive">
+                <table class="table mb-0 table-lg">
+                    <thead>
+                        <tr>
+                            <th>Kode CPMK</th>
+                            <th>CPMK</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% cpmk.forEach(function(cp, index) { %>
+                        <tr>
+                            <td class="text-bold-500"><%= cp.code %></td>
+                            <td><%= cp.name %></td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>          
+    </div>
+        <br />
+        <br />
+
+          <div class="card">
+            <div class="card-header">
+            <h4 class="card-title">Data Revisi RPS</h4>
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table mb-0 table-lg" id="table1">
+                        <thead>
+                            <tr>
+                                <th>Kode Matkul</th>
+                                <th>Nama Matkul</th>
+                                <th>SKS</th>
+                                <th>Jumlah Revisi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% matkul.forEach(function(mtkl, index) { %>
+                            <tr>
+                                <td class="text-bold-500"><%= mtkl.code %></td>
+                                <td><%= mtkl.name %></td>
+                                <td><%= mtkl.credit %></td>
+                                <td><%= mtkl.rev %></td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>          
+        </div>
+        <br />
+        <br />
+
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Persentase RPS</h4>
+          </div>
+
+          <div class="card-body">
+            <!-- <p class="text-subtitle text-muted">Give textual form controls like input upgrade with custom styles,
+                    sizing, focus states, and more.</p> -->
+
+            <div id="piechart"></div>
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+            <script type="text/javascript">
+              // Load google charts
+              google.charts.load("current", { packages: ["corechart"] });
+              google.charts.setOnLoadCallback(drawChart);
+
+              let projectbase = '<%-projectBase%>'
+              let casebase = '<%-caseBase%>'
+              // Draw the chart and set the chart values
+              function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                  ["Task", "Hours per Day"],
+                  ["Project Based", parseInt(projectbase)],
+                  ["Case Based Method", parseInt(casebase)],
+                ]);
+
+                // Optional; add a title and set the width and height of the chart
+                var options = { title: "Persentase RPS yang menggunakan metode Project Based/Case Based Method", width: 550, height: 400 };
+
+                // Display the chart inside the <div> element with id="piechart"
+                var chart = new google.visualization.PieChart(document.getElementById("piechart"));
+                chart.draw(data, options);
+              }
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+  </section>
+  <!-- Horizontal Input end -->
+</div>
+
+<%- include('../layout/foot') %>
